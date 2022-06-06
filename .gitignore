@@ -12,13 +12,13 @@ Icon
 
 # Lock files
 # ---------------
-
 .lock
 
 # Editors
 # (sensitive workspace files)
 # ---------------------------
 *.sublime-workspace
+*.sublime-project
 /.vscode
 /.idea
 
