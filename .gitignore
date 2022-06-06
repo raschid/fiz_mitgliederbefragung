@@ -1,50 +1,21 @@
-# System files
-# ------------
-
-Icon
-.DS_Store
-
 # Temporary files
-# ---------------
-
+# kirby /site: accounts cache sessions 
+/site/accounts/*
+!/site/accounts/index.html
+/site/cache/*
+!/site/cache/index.html
+/site/sessions/*
+!/site/sessions/index.html
+# kirby /media
 /media/*
 !/media/index.html
-
-# Lock files
 # ---------------
 .lock
 
-# Editors
-# (sensitive workspace files)
-# ---------------------------
-*.sublime-workspace
-*.sublime-project
-/.vscode
-/.idea
-
-# -------------SECURITY-------------
-# NEVER publish these files via Git!
-# -------------SECURITY-------------
-
-# Cache Files
-# ---------------
-
-/site/cache/*
-!/site/cache/index.html
-
-# Accounts
-# ---------------
-
-/site/accounts/*
-!/site/accounts/index.html
-
-# Sessions
-# ---------------
-
-/site/sessions/*
-!/site/sessions/index.html
-
 # License
 # ---------------
-
 /site/config/.license
+
+# Workspace files are user-specific
+*.sublime-workspace
+*.sublime-project
