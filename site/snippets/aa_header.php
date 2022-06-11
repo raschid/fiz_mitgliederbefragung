@@ -21,18 +21,17 @@
 		margin:auto;
 	}
 </style>
-<div class="d-flex align-items-center bg-white ps-1 pe-1 py-1" style="border-bottom:2px solid #777; margin-bottom:1.5rem;">
-	<img src="assets/images/logo_vfg_57x50.png">
-	<div class="d-flex ms-auto">
-		<img src="assets/images/logo_fiz_138x50.png">
-	</div>
-</div>
 <div id="mainContainer" class="container-fluid">
-<div class="row">
-	<div class="col-xs-12 offset-0 col-md-10 offset-1">
-		<h1>Hallelujah!</h1>
-		
-	</div>
-</div>
+	<div class="col-xs-12 offset-xs-1 col-md-10 offset-md-1">
+		<div class="row">
+			<div class="d-flex align-items-center bg-white ps-1 pe-1 py-1" style="border-bottom:2px solid #777; margin-bottom:1.5rem;">
+				<img src="assets/images/logo_vfg_57x50.png">
+				<div class="d-flex ms-auto">
+					<img src="assets/images/logo_fiz_138x50.png">
+				</div>
+			</div>
+		</div>
+
+
 
 
