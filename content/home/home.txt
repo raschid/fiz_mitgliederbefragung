@@ -1,1 +1,32 @@
-Title: hallo?
+Title: Mitgliederbefragung Juni 2022
+
+----
+
+Qcheck:
+
+- 
+  qvalue: a
+  qtext: Was soll ich morgen kochen?
+  qtype: justone
+  qreplies:
+    - 
+      antwort: Brokkoli-Suppe
+    - 
+      antwort: Lauchcreme-Suppe
+    - 
+      antwort: Schweine-Nackensteak
+- 
+  qvalue: b
+  qtext: Wer soll das alles essen?
+  qtype: multiple
+  qreplies:
+    - 
+      antwort: Petra
+    - 
+      antwort: Luisa
+    - 
+      antwort: Julius
+
+----
+
+Text: 

@@ -2,6 +2,8 @@
 
 <h1><?php echo $page->title(); ?></h1>
 
+<?php dump($page); ?>
+
 <p>
 	Willkommen zur ersten Mitgliederbefragung des VFG Kiel.eV., bei der auch online abgestimmt werden kann.
 </p>
