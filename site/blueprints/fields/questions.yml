@@ -11,17 +11,11 @@ columns:
   qreplies:
     width: 3/10
 fields:
-  qvalue:
-    label: Wert
-    type: text
-    maxlength: 20
-    required: true
-    width: 1/4
   qtext:
     label: Fragetext
     type: text
     required: true
-    width: 3/4
+    width: 4/4
   qtype:
     label: Antworttyp
     type: radio
@@ -34,6 +28,14 @@ fields:
     width: 3/4
     label: Antwortmöglichkeiten
     type: structure
+    columns:
+      value: 1/10
+      reply: 9/10
     fields:
-      antwort:
+      value:
+        type: text
+        label: Wert
+        maxlength: 5
+      reply:
+        label: Antwort
         type: text

@@ -1,5 +1,44 @@
 title: Default Page
 
 fields:
-  qcheck: 
-    extends: fields/questions
+  questions:
+    label: Fragen
+    type: structure
+    columns:
+      qvalue:
+        width: 1/10
+      qtext:
+        width: 5/10
+      qtype:
+        width: 1/10
+      qreplies:
+        width: 3/10
+    fields:
+      qtext:
+        label: Fragetext
+        type: text
+        required: true
+        width: 4/4
+      qtype:
+        label: Antworttyp
+        type: radio
+        default: justone
+        options:
+          justone: eine Antwort
+          multiple: mehrere Antworten
+        width: 1/4
+      qreplies:
+        width: 3/4
+        label: Antwortmöglichkeiten
+        type: structure
+        columns:
+          value: 1/10
+          reply: 9/10
+        fields:
+          value:
+            type: text
+            label: Wert
+            maxlength: 5
+          reply:
+            label: Antwort
+            type: text

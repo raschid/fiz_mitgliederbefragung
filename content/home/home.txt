@@ -2,30 +2,55 @@ Title: Mitgliederbefragung Juni 2022
 
 ----
 
-Qcheck:
+Questions:
 
 - 
-  qvalue: a
-  qtext: Was soll ich morgen kochen?
-  qtype: justone
-  qreplies:
-    - 
-      antwort: Brokkoli-Suppe
-    - 
-      antwort: Lauchcreme-Suppe
-    - 
-      antwort: Schweine-Nackensteak
-- 
-  qvalue: b
-  qtext: Wer soll das alles essen?
+  qtext: Alle meine enten?
   qtype: multiple
   qreplies:
     - 
-      antwort: Petra
+      value: a
+      reply: schwimmen?
     - 
-      antwort: Luisa
+      value: b
+      reply: auf dem?
     - 
-      antwort: Julius
+      value: c
+      reply: See?
+    - 
+      value: d
+      reply: nirgends?
+- 
+  qtext: Was kann ich dazu?
+  qtype: multiple
+  qreplies:
+    - 
+      value: a
+      reply: Mond schon scheint?
+    - 
+      value: b
+      reply: Wohnheim weint?
+    - 
+      value: c
+      reply: Weinheim wohnt?
+
+----
+
+Qcheck:
+
+- 
+  qtext: Was soll es morgen geben?
+  qtype: justone
+  qreplies:
+    - 
+      value: aad
+      reply: Brokkoli
+    - 
+      value: c
+      reply: Fisch
+    - 
+      value: b
+      reply: Rosenkohl
 
 ----
 
