@@ -1,15 +1,15 @@
-questions:
+questiones:
 label: Fragen
 type: structure
 columns:
   qvalue:
-    width: 1/10
+    width: 2/20
   qtext:
-    width: 5/10
+    width: 9/20
   qtype:
-    width: 1/10
-  qreplies:
     width: 3/10
+  qreplies:
+    width: 6/20
 fields:
   qtext:
     label: Fragetext

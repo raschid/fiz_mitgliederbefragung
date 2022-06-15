@@ -5,6 +5,19 @@ Title: Mitgliederbefragung Juni 2022
 Questions:
 
 - 
+  qtext: Was kann ich dazu?
+  qtype: multiple
+  qreplies:
+    - 
+      value: a
+      reply: Mond schon scheint?
+    - 
+      value: b
+      reply: Wohnheim weint?
+    - 
+      value: c
+      reply: Weinheim wohnt?
+- 
   qtext: Alle meine enten?
   qtype: multiple
   qreplies:
@@ -21,18 +34,15 @@ Questions:
       value: d
       reply: nirgends?
 - 
-  qtext: Was kann ich dazu?
-  qtype: multiple
+  qtext: was soll das?
+  qtype: justone
   qreplies:
     - 
       value: a
-      reply: Mond schon scheint?
+      reply: alpha
     - 
       value: b
-      reply: Wohnheim weint?
-    - 
-      value: c
-      reply: Weinheim wohnt?
+      reply: beta
 
 ----
 
