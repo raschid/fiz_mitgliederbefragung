@@ -5,44 +5,45 @@ Title: Mitgliederbefragung Juni 2022
 Questions:
 
 - 
-  qtext: Was kann ich dazu?
-  qtype: multiple
-  qreplies:
-    - 
-      value: a
-      reply: Mond schon scheint?
-    - 
-      value: b
-      reply: Wohnheim weint?
-    - 
-      value: c
-      reply: Weinheim wohnt?
-- 
-  qtext: Alle meine enten?
-  qtype: multiple
-  qreplies:
-    - 
-      value: a
-      reply: schwimmen?
-    - 
-      value: b
-      reply: auf dem?
-    - 
-      value: c
-      reply: See?
-    - 
-      value: d
-      reply: nirgends?
-- 
-  qtext: was soll das?
+  qtext: >
+    Wenn Samstags abends das Bier aus ist,
+    welcher Tag folgt dann darauf?
+  qexplain: |
+    Diese Frage ist natürlich nicht ganz ernst gemeint. Klar ist, dass auf Samstag **IMMER** Sonntag folgt.
+    
+    Und wer in eine Kneipe geht, die Samstag abends kein Bier mehr hat, für den ist der Sonntag sehr weit weg ...
   qtype: justone
   qreplies:
     - 
       value: a
-      reply: alpha
+      reply: Sonntag, Idiot.
     - 
       value: b
-      reply: beta
+      reply: >
+        ich glaube nicht, das dann die Sonne
+        wieder aufgeht ...
+    - 
+      value: c
+      reply: >
+        Montag. Das Leben ist eine endlose Reihe
+        von Montagen ...
+- 
+  qtext: Nenne Deine vier Lieblingsautoren!
+  qexplain: ""
+  qtype: multiple
+  qreplies:
+    - 
+      value: a
+      reply: Karl May
+    - 
+      value: b
+      reply: Enid Blyton
+    - 
+      value: c
+      reply: Astrid Lindgren
+    - 
+      value: d
+      reply: Joanne K. Rowling
 
 ----
 

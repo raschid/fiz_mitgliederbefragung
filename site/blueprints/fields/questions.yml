@@ -16,6 +16,11 @@ fields:
     type: text
     required: true
     width: 4/4
+  qexplain:
+    label: Erläuterung
+    type: textarea
+    size: small
+    width: 1/1
   qtype:
     label: Antworttyp
     type: radio
