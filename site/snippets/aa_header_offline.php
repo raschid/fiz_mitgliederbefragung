@@ -1,16 +1,11 @@
 <?php 
 /**
-  * dieser code prüft, ob im site-blueprint offline/online-Zeiten eingestellt sind
-  * und nimmt die Seite ggfls. offline bzw. stellt sie online und setzt den entsprechenden Parameter
-  * im site-blueprint
-  */
-		
-	$offline = site()->content()->showpage();
-	$gooffline = strtotime(site()->content()->gooffline());
-	$goonline = strtotime(site()->content()->goonline());
-	$today = time();
-
-	if(site()->content()->showpage() == 'nein' ){ go(site()->content()->showinstead()); } 
+ * aa_header_offline.php
+ * 
+ * Diese Seite wird angezeigt, wenn die öffentliche Website offline sein sein soll
+ * Login-Seite und nicht-öffentliches Backend sollen weiterhin erreichbar bleiben
+ * Das Panel ebenso
+ */
 ?>
 <!DOCTYPE html>
 <html lang="de">

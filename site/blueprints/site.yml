@@ -1,12 +1,41 @@
 title: Site
 
-sections:
-  drafts:
-    type: pages
-    status: drafts
-  unlisted:
-    type: pages
-    status: unlisted
-  published:
-    type: pages
-    status: listed
+columns:
+  preferences:
+    width: 1/3
+    sections:
+        config:
+          type: fields
+          fields:
+            showpage:
+              label: Seite anzeigen?
+              type: radio
+              options:
+                ja: ja
+                nein: nein
+            showinstead:
+              label: Welche Seite stattdessen anzeigen?
+              type: text  
+              help: Bitte relativen URL vom Wurzelverzeichnis aus eingeben
+            goonline:
+              label: automatisch offline gehen?
+              type: date
+              display: DD.MM.YYYY
+              time: true
+            gooffline:
+              label: automatisch online gehen?
+              type: date
+              display: DD.MM.YYYY
+              time: true
+  main:
+    width: 2/3
+    sections:
+      drafts:
+        type: pages
+        status: drafts
+      unlisted:
+        type: pages
+        status: unlisted
+      published:
+        type: pages
+        status: listed
