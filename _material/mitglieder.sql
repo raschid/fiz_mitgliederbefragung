@@ -50,6 +50,7 @@ CREATE TABLE `mitglieder` (
 --
 ALTER TABLE `mitglieder`
   ADD PRIMARY KEY (`id`);
+  ADD UNIQUE KEY `einmalcode` (`einmalcode`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
