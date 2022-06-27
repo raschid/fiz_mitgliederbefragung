@@ -1,17 +1,1 @@
 Showpage: ja
-
-----
-
-Showinstead: 
-
-----
-
-Goonline: 
-
-----
-
-Gooffline: 
-
-----
-
-Ja: nein

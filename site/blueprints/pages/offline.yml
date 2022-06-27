@@ -1,0 +1,17 @@
+title: Offline
+
+fields:
+   info:
+    label: Info
+    type: info
+    text: |
+      Die Website kann im Panel über den Menü-Eintrag *site* on-/offline geschaltet werden!
+  heading:
+    label: Überschrift
+    type: text
+    help: HTML erlaubt!
+  inhalt:
+    label: Inhalt
+    type: textarea
+    size: medium
+    help: HTML erlaubt!

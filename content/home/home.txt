@@ -44,6 +44,17 @@ Questions:
     - 
       value: d
       reply: Joanne K. Rowling
+- 
+  qtext: Kann ich einen Schalter sehen?
+  qexplain: ... ohne Worte ...
+  qtype: justone
+  qreplies:
+    - 
+      value: 'yes'
+      reply: ja
+    - 
+      value: 'no'
+      reply: nein
 
 ----
 

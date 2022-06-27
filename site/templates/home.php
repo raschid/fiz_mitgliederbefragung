@@ -21,8 +21,6 @@
 	</ul> 
 </p>
 
-<form>
-	
-</form>
+
 <?php	echo snippet('aa_footer'); ?>
 

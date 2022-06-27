@@ -1,5 +1,10 @@
 title: Default Page
+icon: ❔
 
 fields:
+  qqqq:
+    label: Info
+    type: info
+    text: Hier soll ein Schalter rein ...
   questions:
     extends: fields/questions

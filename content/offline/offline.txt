@@ -1,0 +1,43 @@
+Title: offline
+
+----
+
+Heading: Die online-Mitgliederbefragung ist zur Zeit offline!
+
+----
+
+Inhalt:
+
+Die Befragung wird für die **Mitgliederversammlung 2022** online geschaltet.
+
+In dieser Zeit kannst Du an der Mitgliederbefragung teilnehmen:
+<ul><strong>
+  Montag, 07. Juli 2022 08:00 Uhr bis <br>
+  Sonntag, 21.Juli 2022 23:00 Uhr
+</strong></ul>
+
+&nbsp;
+
+Für die Teilnahme benötigst Du
+
+- natürlich eine Mitgliedschaft im VFG Kiel e.V.
+- den Link aus der Einladungsmail, der den Einmalcode enthält
+- deinen Nachnamen
+- dein Geburtsdatum
+
+## Kann ich auch "analog" teilnehmen?
+
+Selbstverständlich kannst Du statt der online-Befragung auch wieder die Papier-Version ausfüllen.
+Dafür liegen die entsprechenden Unterlagen im FiZ am Service-Tresen aus.
+
+Sollten zur Zeit der Auszählung sowohl online- als auch analog-Ergebnisse von Dir vorliegen, werden nur die online-Ergebnisse gewertet!
+
+----
+
+Content:
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+Duis autem *vel* eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
