@@ -2,9 +2,12 @@ title: Default Page
 icon: ❔
 
 fields:
-  qqqq:
-    label: Info
-    type: info
-    text: Hier soll ein Schalter rein ...
+  heading:
+    label: Überschrift
+    type: text
+  einleitung:
+    label: Einleitung
+    type: textarea
+    size: medium
   questions:
     extends: fields/questions
