@@ -13,7 +13,7 @@
  * Der authcode wird hier als Variable übergeben (statt ihn über get('authcode') zu holen),
  * damit ich auch über POST keine Probleme bekomme ...
  */
-  function checkIfAuthcodeAvailable($code)
+  function isAuthcodeAvailable($code)
   {
     if(!V::empty($code) && V::alphanum($code)){ return true; }
     return false;  
@@ -21,15 +21,18 @@
 
 /**
  * 02: prüft, ob der authcode in der Datenbank vorhanden ist, 
- *
+ *  
  */
-  function checkIfAuthcodeInDatabase($code){ }
+  function isAuthcodeInDatabase($code)
+  { 
+
+  }
 
 /**
  * 03: prüft, ob der authcode bereits als "hat_gewählt" markiert wurde
  *
  */
-  function checkIfAuthcodeAlreadyVoted($code){ }
+  function hasAuthcodeAlreadyVoted($code){ }
 
 /**
  * 04: prüft, ob Nachname und Geburtsdatum in der Datenbank zu den eingegebenen Daten passen
@@ -39,7 +42,16 @@
  * 
  * authcode und Mitgliedsnummer werden in einer (JSON-) Datei gespeichert, die den Namen des Zufallsstringes trägt.
  */
-  function checkIfMemberDataMatch($code){ }    
+  function doMemberDataMatch($code){ }    
+
+/**
+ * prüft, ob die Formulardaten valide sind.
+ */
+  function formDataAreValid(){}
+
+
+
+
 
 /**
  * wenn der authcode im URL mitgeliefert wird, handelt es sich um den Aufruf über den Einladungslink
@@ -47,11 +59,24 @@
  */
 if($kirby->request()->is('GET'))
 {
-  if( checkIfAuthcodeAvailable(get('authcode')) )
+  if( isAuthcodeAvailable(get('authcode')) )
   {
     $authcode = get('authcode');
     $readonly = ' readonly';
   }
+}
+
+
+
+/**
+ * wenn der request über OOST hereinkommt, ist es das ausgefüllte Formular
+ * - dann prüfen, ob die Daten in Ordnung sind
+ * - im Erfolgsfall den Fragebogen zurück geben
+ * - sonst eine Fehlermeldung
+ */
+elseif($kirby->request()->is('POST'))
+{
+
 }
 
 ?>
