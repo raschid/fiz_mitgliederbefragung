@@ -69,7 +69,7 @@ if($kirby->request()->is('GET'))
 
 
 /**
- * wenn der request über OOST hereinkommt, ist es das ausgefüllte Formular
+ * wenn der request über POST hereinkommt, ist es das ausgefüllte Formular
  * - dann prüfen, ob die Daten in Ordnung sind
  * - im Erfolgsfall den Fragebogen zurück geben
  * - sonst eine Fehlermeldung
