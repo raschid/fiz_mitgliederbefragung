@@ -81,19 +81,58 @@ elseif($kirby->request()->is('POST'))
 
 ?>
 
+
+
 <div class="row">
-  <div class="col-xs-12 offset-xs-1 col-md-4 offset-md-1">
+  <div class="ms-4 mt-3 mb-3 col-xs-10 col-sm-8 col-md-6 col-lg-5 alert alert-dark" style="border:1px solid #ccc;border-radius:15px;Als">
+    <h5 class="mt-3 mb-3">Als Mitglied authentifizieren:</h5>
     <div class="mb-3">
-      <label for="fiz_auth" class="form-label">Authentifizierungscode</label>
-      <input type="text" class="form-control" id="fiz_auth" value="<?= $authcode; ?>"<?= $readonly; ?>>
+      <label for="fiz_auth" class="form-label fw-bold">Authentifizierungscode</label>
+      <input type="text" class="form-control" id="fiz_auth" placeholder="Code aus der Einladungsmail" value="<?= $authcode; ?>"<?= $readonly; ?>>
     </div>
     <div class="mb-3">
-      <label for="fiz_name" class="form-label">Nachname</label>
-      <input type="text" class="form-control" id="fiz_name" placeholder="bitte hier Deinen Nachnamen eingeben">
+      <label for="fiz_name" class="form-label fw-bold">Nachname</label>
+      <input type="text" class="form-control" id="fiz_name" placeholder="z.B. Müller">
     </div>
     <div class="mb-3">
-      <label for="fiz_birthdate" class="form-label">Geburtsdatum</label>
-      <input type="date" class="form-control" id="fiz_birthdate" placeholder="bitte hier Dein Geburtsdatum eingeben">
+      <label for="fiz_name" class="form-label fw-bold">Geburtsdatum</label>
+      <input type="text" class="form-control" id="fiz_date" placeholder="z.B.: 05.03.1995">
+    </div>
+    <div class="mb-3 text-center">
+      <button id="btn_auth_submit" type="button" class="btn btn-success">anmelden</button>
+      <button id="btn_auth_cancel" type="button" class="btn btn-danger">abbrechen</button>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  fiz.auth = {};
+  fiz.auth.setListeners = function()
+  {
+    a = document.getElementById('btn_auth_submit');
+    a.addEventListener('click',function(){});
+    a = document.getElementById('btn_auth_cancel');
+    a.addEventListener('click',function(){});
+  }
+
+  /**
+   * prüft, ob die Formulareingaben syntaktisch dem geforderten entsprechen
+   */
+  fiz.auth.validateForm = function()
+  {
+    // authcode: 12 Zeichen, alphanumerisch
+    // Nachname: Buchstaben, Leerzeichen, Bindestrich, Hochkomma 
+    // geburtsdatum regex
+    // ^(0?[1-9]|[12][0-9]|3[01])[\/\-.](0?[1-9]|1[012])[\/\-.]\d{4}$
+
+
+
+
+
+
+  }
+  fiz.auth.emptyForm = function(){}
+
+
+  fiz.auth.setListeners();
+</script>

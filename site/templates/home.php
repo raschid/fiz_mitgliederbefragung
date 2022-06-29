@@ -18,8 +18,8 @@
 		echo $page->einleitung()->kirbytext();
 		//echo '</div>';
 
-		$count = Db::count('mitglieder', 'hatgewaehlt = "0000-00-00 00:00:00"');
-		echo 'DB-Count: '.$count;
+		//$count = Db::count('mitglieder', 'hatgewaehlt = "0000-00-00 00:00:00"');
+		//echo 'DB-Count: '.$count;
 
 
 		echo snippet('authenticate_member');

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php 
 /**
   * dieser code prüft, ob im site-blueprint offline eingeschaltet ist
@@ -5,7 +6,6 @@
   */
 	if(site()->content()->showpage() == 'nein' ){ go('/offline'); } 
 ?>
-<!DOCTYPE html>
 <html lang="de">
 <head>
 	<meta charset="UTF-8">
@@ -17,19 +17,23 @@
 	print css('/assets/bootstrap-icons-1.8.3/bootstrap-icons.css')."\n";
 	print css('/assets/css/app.css'); 
 	print "\n".js('assets/bootstrap-5.2.0/js/bootstrap.bundle.min.js');
+	print "\n".js('assets/js/app.js');
 ?>
 </head>
 <body>
 <style type="text/css">
 	#mainContainer 
 	{
-		/*width: 100%px;*/
+		width: 95%px;
 		/*max-width:1320px;*/
 		margin:auto;
+		#maincontent {
+
+		}
 	}
 </style>
-<div id="mainContainer" class="container-fluid">
-	<div class="col-xs-12 offset-xs-1 col-md-10 offset-md-1">
+<div id="mainContainer" class="container">
+	<div id="maincontent" class="col-xs-12 col-md-10 offset-md-1">
 		<div class="row">
 			<div class="d-flex align-items-center bg-white ps-1 pe-1 py-1" style="border-bottom:2px solid #777; margin-bottom:1.5rem;">
 				<img src="assets/images/logo_vfg_57x50.png">

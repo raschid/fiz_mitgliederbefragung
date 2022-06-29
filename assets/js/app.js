@@ -1,4 +1,7 @@
 var fiz = {};
 
-fiz.talkToServer = function(what){};
-fiz.validateFormFields = function(what){};
+
+console.log('bin da :-)');
+
+//fiz.talkToServer = function(what){};
+//fiz.validateFormFields = function(what){};
