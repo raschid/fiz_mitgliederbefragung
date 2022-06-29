@@ -84,7 +84,7 @@ elseif($kirby->request()->is('POST'))
 
 
 <div class="row">
-  <div class="ms-4 mt-3 mb-3 col-xs-10 col-sm-8 col-md-6 col-lg-5 alert alert-dark" style="border:1px solid #ccc;border-radius:15px;Als">
+  <div class="ms-4 mt-3 mb-3 col-xs-8 col-sm-8 col-md-6 col-lg-5 alert alert-dark" style="border:1px solid #ccc;border-radius:15px;Als">
     <h5 class="mt-3 mb-3">Als Mitglied authentifizieren:</h5>
     <div class="mb-3">
       <label for="fiz_auth" class="form-label fw-bold">Authentifizierungscode</label>
@@ -110,9 +110,11 @@ elseif($kirby->request()->is('POST'))
   fiz.auth.setListeners = function()
   {
     a = document.getElementById('btn_auth_submit');
-    a.addEventListener('click',function(){});
-    a = document.getElementById('btn_auth_cancel');
-    a.addEventListener('click',function(){});
+    a.addEventListener('click',function(){
+      console.log('hallo!');
+    });
+   // a = document.getElementById('btn_auth_cancel');
+   // a.addEventListener('click',function(){});
   }
 
   /**
@@ -122,8 +124,25 @@ elseif($kirby->request()->is('POST'))
   {
     // authcode: 12 Zeichen, alphanumerisch
     // Nachname: Buchstaben, Leerzeichen, Bindestrich, Hochkomma 
+    // [a-zA-ZäüöÄÜÖß' -]+$/i
     // geburtsdatum regex
     // ^(0?[1-9]|[12][0-9]|3[01])[\/\-.](0?[1-9]|1[012])[\/\-.]\d{4}$
+    let formIsValid = true;
+
+    let pattern = /\W/; // alle nicht-Wort-Zeichen. (allerdings auch äüß und sió weiter...)
+    let authcode = document.getElementById('fiz_auth').value;
+    if(pattern.test(authcode) == true){ formIsValid =  false; }
+
+    /**
+     * /\-\'_äüöß]/g
+     * alle ERLAUBTEN Sonderzeichen aus dem Namen entfernen 
+     * DANN auf nicht-Wort-Zeichen prüfen!
+     */
+    let nachname = document.getElementById('fiz_name').value;
+    str = nachname.replace([ /\-\'_äüöß]/g,'');
+    if(pattern.test(str) == true){ formIsValid =  false; }
+
+    let gebdat = document.getElementById('fiz_date').value;
 
 
 
