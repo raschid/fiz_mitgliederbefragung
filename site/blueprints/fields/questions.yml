@@ -21,6 +21,33 @@ fields:
     type: textarea
     size: small
     width: 1/1
+  qrequired:
+    label: Ist eine Antwort zwingend erforderlich?
+    type: toggle
+    default: true
+    text:
+      - nein
+      - ja
+  qyesnoabstain:
+    label: Soll der Standard ja-nein-Enthaltung verwendet werden?
+    type: toggle
+    default: true
+    text:
+      - nein
+      - ja
+  line:
+    type: line
+    when:
+      qyesnoabstain: false
+  qinfo:
+    label: Info
+    type: info
+    text: |
+      Hier bitte wählen:
+       - eine Antwort: erzwingt, dass von den Antwortmöglichkeiten genau eine gewählt werden kann
+       - mehrere Antworten: läßt zu, dass mehrere Antworten aus der Gruppe markiert werden.
+    when:
+      qyesnoabstain: false
   qtype:
     label: Antworttyp
     type: radio
@@ -29,6 +56,8 @@ fields:
       justone: eine Antwort
       multiple: mehrere Antworten
     width: 1/4
+    when:
+      qyesnoabstain: false
   qreplies:
     width: 3/4
     label: Antwortmöglichkeiten
@@ -44,3 +73,5 @@ fields:
       reply:
         label: Antwort
         type: text
+    when:
+      qyesnoabstain: false

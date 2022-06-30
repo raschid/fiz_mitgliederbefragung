@@ -25,14 +25,31 @@
  */
   function isAuthcodeInDatabase($code)
   { 
-
+    $table = 'mitglieder';
+    $where = 'einmalcode = "'.get('authcode').'"';
+    $t = Db::first('users','*',$where);
+    if(Db::affected() == 1)
+    {
+      return true;
+    }
+    return false;
   }
 
 /**
  * 03: prüft, ob der authcode bereits als "hat_gewählt" markiert wurde
  *
  */
-  function hasAuthcodeAlreadyVoted($code){ }
+  function hasAuthcodeAlreadyVoted($code)
+  {
+    $table = 'mitglieder';
+    $where = 'einmalcode = "'.get('authcode').'"';
+    $t = Db::first('users','hatgewaehlt',$where);
+    if($t->hatgewaehlt() != '0000-00-00 00:00:00')
+    {
+      return true;
+    }
+    return false;
+  }
 
 /**
  * 04: prüft, ob Nachname und Geburtsdatum in der Datenbank zu den eingegebenen Daten passen
@@ -129,6 +146,7 @@ elseif($kirby->request()->is('POST'))
     // ^(0?[1-9]|[12][0-9]|3[01])[\/\-.](0?[1-9]|1[012])[\/\-.]\d{4}$
     let formIsValid = true;
 
+<<<<<<< HEAD
     let pattern = /\W/; // alle nicht-Wort-Zeichen. (allerdings auch äüß und sió weiter...)
     let authcode = document.getElementById('fiz_auth').value;
     if(pattern.test(authcode) == true){ formIsValid =  false; }
@@ -140,6 +158,14 @@ elseif($kirby->request()->is('POST'))
      */
     let nachname = document.getElementById('fiz_name').value;
     str = nachname.replace([ /\-\'_äüöß]/g,'');
+=======
+    let pattern = /\W/;
+    let authcode = document.getElementById('fiz_auth').value;
+    if(pattern.test(authcode) == true){ formIsValid =  false; }
+
+    let nachname = document.getElementById('fiz_name').value;
+    str = nachname.replace(/[ -\'_]/g,'');
+>>>>>>> main
     if(pattern.test(str) == true){ formIsValid =  false; }
 
     let gebdat = document.getElementById('fiz_date').value;
