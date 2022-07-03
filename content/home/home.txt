@@ -16,6 +16,7 @@ Die online-Wahl geht so vonstatten:
 - dafür musst Du in das folgende Formular Deinen Nachnamen, Dein Geburtsdatum und den Einmal-Code eingeben, den Du mit der Email erhalten hast.
 *(Wenn Du diese Seite über den Link in der Einladungsmail besuchst, ist der Einmal-Code bereits eingetragen.)*
 - anschließend wird Dir das Umfrageformular angezeigt.
+- wenn Du die Fragen beantwortet hast, werden Deine Antworten anonym gespeichert und der Einmal-Code wird als ungültig markiert.
 
 ----
 

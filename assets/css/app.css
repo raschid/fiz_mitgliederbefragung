@@ -1,1 +1,7 @@
 /* Diese Datei enthält das vollständige custom css ... */
+
+.bg-danger-light { background-color: #fad9d9; }
+.bg-warning-light { background-color: #faf5cd; }
+.bg-success-light { background-color: #dff7be; }
+.modal-header { border-bottom-color: #000; }
+.modal-footer { border-top-color: #000; }

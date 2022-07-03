@@ -21,18 +21,6 @@
 ?>
 </head>
 <body>
-<style type="text/css">
-	#mainContainer 
-	{
-		width: 95%px;
-		/*max-width:1320px;*/
-		margin:auto;
-		#maincontent {
-
-		}
-	}
-</style>
-<div id="mainContainer" class="container">
 	<div id="maincontent" class="col-xs-12 col-md-10 offset-md-1">
 		<div class="row">
 			<div class="d-flex align-items-center bg-white ps-1 pe-1 py-1" style="border-bottom:2px solid #777; margin-bottom:1.5rem;">
