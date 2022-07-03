@@ -91,7 +91,7 @@ a.addEventListener('click',function(){
                     break;
                 case 'error': 
                     showModal({titel:data.titel,body:data.message,bgcolor:'bg-danger-light'});
-                    console.log(data.message); 
+                    console.log(data); 
                     break;
             }
         });
@@ -117,7 +117,7 @@ validateForm = function(){
 
     let gebdat = document.getElementById('fiz_date').value;
     pattern= new RegExp('[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}');
-    if(!pattern.test(gebdat)){ formIsValid = false}
+    if(!pattern.test(gebdat) || gebdat.length != 10){ formIsValid = false}
 
     return formIsValid;
 }

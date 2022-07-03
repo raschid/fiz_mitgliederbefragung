@@ -1,15 +1,15 @@
 <?php
 class HomePage extends Page 
 {
-	public function checkAuthData()
+	public function checkAuthData($data)
     {
         // sind die Formulardaten formal in Ordnung?
         // areFormDataValid() holt sich die Daten per get()
-        if($this.areFormDataValid() == false)
+        if($this->areFormDataValid($data) == false)
         {
             $return['status'] = 'error';
             $return['message'] = 'Die angegebenen Daten sind nicht valide!';
-            $this.returnJSONData($return);
+            returnJSONData($return);
             exit;
         }
         else
@@ -27,7 +27,7 @@ class HomePage extends Page
                 {
                     $return['status'] = 'error';
                     $return['message'] = 'Der angegebene Code ist bereits verwendet worden!';
-                    $this.returnJSONData($return);
+                    returnJSONData($return);
                     exit;
                 }
                 else
@@ -37,14 +37,14 @@ class HomePage extends Page
                         $pollForm = page('home')->getPoll();
                         $return['status'] = 'success';
                         $return['pollform'] = $pollForm;
-                        $this.returnJSONData($return);
+                        returnJSONData($return);
                         exit;
                     }
                     else
                     {
                         $return['status'] = 'error';
                         $return['message'] = 'Die Mitgliedsdaten sind nicht korrekt!';
-                        $this.returnJSONData($return);
+                        returnJSONData($return);
                         exit;
                     }
                 }
@@ -53,7 +53,7 @@ class HomePage extends Page
             {
                 $return['status'] = 'error';
                 $return['message'] = 'Der angegebene Code ist nicht gültig!';
-                $this.returnJSONData($return);
+                returnJSONData($return);
                 exit;
             }
         }
@@ -98,7 +98,7 @@ class HomePage extends Page
 
 		$temp = trim(get('geburtstag'));
 		//erwartetes Muster: dd.mm.jjjj
-		$pattern = '/^(0?[1-9]|[12][0-9]|3[01])[\/\-.](0?[1-9]|1[012])[\/\-.]\d{4}$/';
+		$pattern = '/(0?[1-9]|[12][0-9]|3[01])[\/\-.](0?[1-9]|1[012])[\/\-.]\d{4}/i';
 
 	    if( preg_match( $pattern, $temp ) < 1 )
 	    { $valid = false; }
