@@ -35,12 +35,14 @@ function checkAuthData($data)
                 {
                     // wenn wir hier gelandet sind, ist das Mitglied authorisiert
                     // an der Umfrage teilzunehmen
-                    snippet('questions/questions');
-                    $pollForm = createPoll();
-                    $return['status'] = 'success';
-                    $return['pollform'] = $pollForm;
-                    returnJSONData($return);
-                    exit;
+                    //snippet('questions/questions');
+                    //$pollForm = createPoll();
+                    //$return['status'] = 'success';
+                    //$return['pollform'] = $pollForm;
+                    //returnJSONData($return);
+                    //exit;
+
+                    return true;
                 }
                 else
                 {
