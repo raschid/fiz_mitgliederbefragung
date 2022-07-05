@@ -7,7 +7,7 @@
 function createPoll()
 {
 
-  $pollcontainer ='<div id="pollcontainer" class="col-12 p-5"><form id="fizPoll22">##CONTENT##</form>##SUBMIT##</div>'.getJavascript();
+  $pollcontainer ='<div id="pollcontainer" class="col-12 p-5"><form id="fizPoll22">##CONTENT##</form>##SUBMIT##</div>';
 
   // Inhalte von der Seite holen
   $questions = kirby()->page('home')->questions()->toStructure();
@@ -41,15 +41,38 @@ function createPoll()
   // Submit-Button:
   $submit = '<div><button type="button" class="btn btn-success">Fragebogen abschicken</button></div>';
 
+$javascript = <<< EOD
+  <script type="text/javascript">
+    let a = document.querySelectorAll('.titelbtn');
+    a.forEach((b) => {
+      b.addEventListener('mouseover', function(){
+        this.classList.remove('text-light', 'bg-primary');
+        this.classList.add('text-dark', 'bg-warning');
+        this.style.cursor = 'pointer';
+      });
+     b.addEventListener('mouseout', function(){
+        this.classList.remove('text-dark', 'bg-warning');
+        this.classList.add('text-light', 'bg-primary');
+      });
+     b.addEventListener('click', function(){
+        document.querySelector('.modal-dialog').classList.add('modal-fullscreen');
+        c = {};
+        c.titel = this.dataset.titel;
+        c.body = this.dataset.explain;
+        c.bgcolor = 'bg-light';
+        showModal(c);
+      });
+    });
 
-
+  </script>
+EOD;
 
   //$pollcontainer = str_replace(['##CONTENT##', '##SUBMIT##','##JAVASCRIPT##'], [$content, $submit, $javascript], $pollcontainer);
   $pollcontainer = str_replace(['##CONTENT##', '##SUBMIT##'], [$content, $submit], $pollcontainer);
   return $pollcontainer;
 
 }
-
+<?php
 
 function makeRadioGroup($id)
 {
@@ -76,36 +99,4 @@ $text = ['','ja','nein','Enthaltung'];
   }
   return $radiogroup;
 }
-
-function getJavascript(){
-
-$javascript = <<<EOD
-<script type="text/javascript">
-  let a = document.querySelectorAll('.titelbtn');
-  a.forEach((b) => {
-    b.addEventListener('mouseover', function(){
-      this.classList.remove('text-light', 'bg-primary');
-      this.classList.add('text-dark', 'bg-warning');
-      this.style.cursor = 'pointer';
-    });
-   b.addEventListener('mouseout', function(){
-      this.classList.remove('text-dark', 'bg-warning');
-      this.classList.add('text-light', 'bg-primary');
-    });
-   b.addEventListener('click', function(){
-      document.querySelector('.modal-dialog').classList.add('modal-fullscreen');
-      c = {};
-      c.titel = this.dataset.titel;
-      c.body = this.dataset.explain;
-      c.bgcolor = 'bg-light';
-      showModal(c);
-    });
-  });
-</script>
-EOD;
-
-return $javascript;
-
-}
-
 ?>

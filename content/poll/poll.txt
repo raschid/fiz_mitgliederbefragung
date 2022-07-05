@@ -2,4 +2,21 @@ Title: poll
 
 ----
 
+Welcome:
+
+die Fragen des Fragebogens entsprechen der mit der Email verschickten Beschlussvorlage. Du kannst jeden Vorschlag
+- annehmen
+- ablehnen, oder
+- dich enthalten
+
+Wenn du nicht mehr weißt, worum es bei der Frage genau geht, kannst Du auf das Fragezeichen neben dem Fragetitel klicken.
+Dann wird die Erläuterung aus der Beschlussvorlage eingeblendet.
+
+Die Teilnahme an der Umfrage ist bis einschließlich **31.07.2022 um 23.59 Uhr** möglich.
+
+Viel Spaß beim Abstimmen!
+_Dein FiZ-Team_
+
+----
+
 Text: Test
