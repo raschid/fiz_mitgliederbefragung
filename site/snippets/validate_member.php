@@ -8,6 +8,7 @@
 
 function checkAuthData($data)
 {
+    $return['titel'] = 'Der Server meldet:';
 
     // sind die Formulardaten formal in Ordnung?
     // areFormDataValid() holt sich die Daten per get()
