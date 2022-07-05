@@ -44,6 +44,7 @@ function updateSession($content)
 	$session->set('fiz.x', $mitgliedsnummer);
 	$session->set('fiz.y', $authcode_rev);
 	return true;
+
 }
 
 ?>
