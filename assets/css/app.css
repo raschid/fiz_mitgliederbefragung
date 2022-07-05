@@ -5,3 +5,27 @@
 .bg-success-light { background-color: #dff7be; }
 .modal-header { border-bottom-color: #000; }
 .modal-footer { border-top-color: #000; }
+
+#pollcontainer {
+	box-shadow: 10px 20px 15px silver;
+	border:  1px solid silver;
+	border-radius: 10px;
+	min-height: 400px;
+	padding: 10px;
+}
+
+#pollcontainer .titelbtn:hover{
+	background-color: #0d6efd;
+	color: #f8f9fa;
+}
+
+#pollcontainer .itemtitel {
+	display: flex; 
+	align-items:center;
+	justify-content: space-between;
+	border-radius: 12px 10px 0px 0px;
+}
+
+#pollcontainer .qbody {
+	border-radius: 0px 0px 12px 12px ;
+}

@@ -33,9 +33,12 @@ function checkAuthData($data)
             {
                 if( doMemberDataMatch($data) )
                 {
-                    //$pollForm = getPoll();
+                    // wenn wir hier gelandet sind, ist das Mitglied authorisiert
+                    // an der Umfrage teilzunehmen
+                    snippet('questions/questions');
+                    $pollForm = createPoll();
                     $return['status'] = 'success';
-                    $return['pollform'] = 'Yes, here we are!';
+                    $return['pollform'] = $pollForm;
                     returnJSONData($return);
                     exit;
                 }

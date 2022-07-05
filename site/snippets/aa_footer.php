@@ -48,11 +48,8 @@
  * holt die angefragten Daten vom Server
  * @param object	what { action: '...', content: {...} };
  */
-	async function getDataFromServer(data)
+async function getDataFromServer(data)
 {
-//	t = {status:'error',titel:'Der Server meldet:', message:'blbaablaa'};
-//		t = {status:'success',pollform:'<h1>Jippie!</h1>'};
-//		return(t);
 	const response = await fetch('/home.json', {
   		method: 'POST',
   		headers: { 'Content-Type': 'application/json' },
