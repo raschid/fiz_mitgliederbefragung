@@ -1,0 +1,11 @@
+Was ist zu tun?:
+
+  nach Prüfung der Login-Daten
+
+  - Funktion: setzt cookie mit
+    - x = 20011223444  -> Mitgliedsnummer
+    - y = 2cidz04ghloW -> authcode invertiert!
+  - leitet um zu seite "poll"
+
+  - Seite Poll prüft x und y und zeigt Poll an oder Fehlermeldung
+    - Fehler: löscht cookie und schickt zurück zu Seite home

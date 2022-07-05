@@ -9,6 +9,7 @@
 		echo '<div class="col-12">';
 		echo $page->einleitung()->kirbytext();
 		echo snippet('show_auth_form');
+		//echo snippet('questions/questions');
 		echo '</div>';
 		echo snippet('aa_footer');
 ?>

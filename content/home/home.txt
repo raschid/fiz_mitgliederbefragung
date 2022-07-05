@@ -20,7 +20,77 @@ Die online-Wahl geht so vonstatten:
 
 ----
 
-Questions: 
+Questions:
+
+- 
+  qtext: Entlastung des Vorstands
+  qid: entvs
+  qexplain: |
+    Die Kasse wurde am 05.04.2022 unter Anwesenheit der Schatzmeisterin Frau Arndt und der
+    Verwaltungsleiterin Frau Wolff geprüft. Die Richtigkeit der Buchführung wurde durch Stichproben
+    in Kontoauszügen und der dazugehörigen Belege überprüft.
+    Es ergaben sich keinerlei Beanstandungen.
+    
+    Die Kassenprüfer betonen ausdrücklich, dass die Buchführung übersichtlich, nachvollziehbar
+    und sehr sorgfältig vorgenommen wurde.
+    
+    Die Kassenprüfer beantragen, die Entlastung der Schatzmeisterin sowie des Vorstands
+    vorzunehmen.
+  qproposal: >
+    Entlastung der Schatzmeisterin sowie des
+    Vorstands
+  qrequired: 'true'
+  qtype: obstain
+  qreplies: [ ]
+  qyesnoabstain: 'true'
+- 
+  qtext: 'Haushaltsplan 2022 '
+  qid: hhp22
+  qexplain: |
+    Die Planung des Haushalts ist durch drei vorherrschende Komponenten geprägt:
+    
+    1. erfreuliche Erholung der Erlöse aus den Trainingsgebühren (Abos etc.)
+    2. steigende Kosten in nahezu allen Bereichen, insbesondere bei Personal und Energie
+    3. weiteren Abbau der Verschuldung
+    
+    Zu den Erlösen ist zu sagen, dass der Verein bislang stärker als im letzten Geschäftsbericht prognostiziert von der Wiederaufnahme der Trainingstätigkeit profitiert. Die erwarteten
+    Gesamterlöse von ca. 2,5 Mio. Euro liegen aber dennoch deutlich unter den ca. 2,8 Mio. Euro der Jahre 2017 bis 2019. Die im April 2022 beschlossenen und im Mai 2022 kommunizierten
+    Preiserhöhungen werden nur zu einem sehr geringen Teil bereits ab Juni 2022 erlöswirksam. Der weitaus größere Teil der Preismaßnahmen wird frühestens ab September 2022 erlöswirksam, weil erst dann die Beiträge der Mitglieder in Abo-Verträgen steigen.
+    
+    Die Kosten steigen hingegen deutlich früher: bei den Dienstleistern ist bereits seit Jahresbeginn eine deutliche Verteuerung in allen Bereichen zu beobachten gewesen. Dies betrifft Handwerker, Wartungsverträge, Ersatzteile aber vor allem auch die Hygieneartikel (Papier etc.).
+    
+    Die Gehälter für die Minijobber, die von der Anpassung des Mindestlohns profitieren, wird der Verein in zwei Stufen anheben: in einem ersten Schritt zum 1. Juni 2022, um dem veränderten
+    Arbeitsmarkt gerecht zu werden, und in einem zweiten Schritt zum 1. Oktober 2022, um die  gesetzlichen Vorgaben zu erfüllen. Die Gehälter der Mitarbeiter, die oberhalb des Mindestlohns
+    verdienen, werden individuell angepasst.
+    
+    Steigende Strom- und Heizungskosten werden für den Verein ab Herbst 2022 relevant, da wir im Sommerhalbjahr deutlich weniger Strom verbrauchen. Zudem hat der Vorstand im Bereich der Sauna erste Einsparmaßnahmen beschlossen, um den Energiebedarf insgesamt zu reduzieren. Für Zinsen und Tilgung ist ein Gesamtvolumen von mindestens 270.000,- Euro vorgesehen. Dies ist bedingt dadurch, dass das „Altdarlehen I“ weiterhin mit ca. 240 TEUR pro Jahr bedient werden muss und zudem das „Zusatzdarlehen II“, das bislang tilgungsfrei gestellt war, aber Dezember 2022 erstmalig getilgt werden muss. Freie liquide Mittel sind zudem für Sondertilgungen vorgesehen, um die Verschuldung weiter zu reduzieren, die Zinslast zu senken und dem Verein die Bildung von Rücklagen für die Sanierung des Hallendaches zu ermöglichen.
+  qproposal: Zustimmung zum Haushaltsplan 2022
+  qrequired: 'true'
+  qtype: obstain
+  qreplies: [ ]
+- 
+  qtext: Neufassung der Satzung
+  qid: stzng
+  qexplain: |
+    Der Vorstand schlägt vor, die Satzung des Vereins leicht zu modifizieren, um den Verein zukunftssicher
+    aufzustellen. Dabei zielen die in der Anlage dargestellten Satzungsänderungen vor allem auf zwei
+    Bereiche ab:
+    
+    a. Neuorganisation der Wahlen des Vorstands.
+    Bislang wurde der Vorstand alle zwei Jahre vollständig neu gewählt. Zukünftig soll jedes Jahr ein Teil des Vorstands neu gewählt werden. Damit soll sowohl eine Kontinuität im Vorstand ermöglicht werden als auch eine regelmäßige Überprüfung der Vorstandstätigkeit durch die Mitgliederversammlung gewährleistet werden.
+    b. Entkoppelung des ehrenamtlichen Vorstands von der operativen Geschäftsleitung. Bislang war der angestellte Sportdirektor qua Amt auch voll stimmberechtigtes Mitglied des
+    Gesamtvorstands; dieser wurde aber nicht von den Mitgliedern gewählt. Zukünftig sollen dem Vorstand nur gewählte und ehrenamtliche Mitglieder angehören. Der (oder die) Sportdirektor/in wird gemäß Satzungsvorschlag zukünftig nur ständiger Gast in den Vorstandssitzungen sein, dem Vorstand aber nicht formal angehören.
+    
+    Darüber hinaus werden einige Formulierungen präzisiert um sicherzustellen, dass der Vorstand jederzeit handlungsfähig ist.
+    
+    Alle Änderungen sind in der Anlage farblich hervorgehoben und werden der jetzigen Regelung zur direkten Vergleichbarkeit gegenüber gestellt.
+  qproposal: >
+    Zustimmung zur geplanten
+    Satzungsänderung gemäß Anlage zur
+    Einladung.
+  qrequired: 'true'
+  qtype: obstain
+  qreplies: [ ]
 
 ----
 
