@@ -4,175 +4,101 @@
  *
  */
 
-// Template für bootstrap-accordion
-$template = <<<EOA
-<div class="accordion-item">
-  <h2 class="accordion-header" id="heading##ITEMNUMBER##">
-    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#carousel##ITEMNUMBER##" aria-expanded="true" aria-controls="collapseOne">##ITEMTITLE##</button>
-  </h2>
-  <div id="carousel##ITEMNUMBER##" class="accordion-collapse collapse##SHOWITEM##" aria-labelledby="heading##ITEMNUMBER##" data-bs-parent="#fiz_umfrage">
-    <div class="accordion-body">
-      ##ITEMBODY##
-    </div>
-  </div>
-</div>
-EOA;
-
-// letzter Eintrag des Akkordeons: dient zum abschicken des Formulars 
-$submit = <<<EOA
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingSubmit">
-    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#carouselSubmit" aria-expanded="true" aria-controls="collapseOne">Fragebogen abschicken</button>
-  </h2>
-  <div id="carouselSubmit" class="accordion-collapse collapse" aria-labelledby="headingSubmit" data-bs-parent="#fiz_umfrage">
-    <div class="accordion-body">
-      <button type="button" class="btn btn-primary">Umfrage abschicken</button>
-      <button type="button" class="btn btn-danger">abbrechen</button>
-    </div>
-  </div>
-</div>
-EOA;
-
-// Style für Texte mit .callout-Klasse
-$callout = <<<EOB
-<style type="text/css">
-  .callout {
-    padding: 20px;
-    margin: 20px 0;
-    /*border: 1px solid #edfbfe;*/
-    border: 1px solid #eee;
-    border-left-width: 8px;
-    /*border-left-color: #b5d4ff;*/
-    border-left-color: #888;
-    border-radius: 3px;
-    background-color: #eee;
-    /*background-color: #e7f1ff;*/
-
-    /*.accordion-button:not(.collapsed)*/
-    .accordion-header {
-      color: #333 !important;
-      background-color: #ff0000 !important;
-    }
-  }
-</style>
-EOB;
-
-
-// Inhalte von der Seite holen
-$questions = $page->questions()->toStructure();
-
-// Akkordeon und Formular starten
-echo '<div class="accordion mt-4 mb-4" id="fiz_umfrage">';
-echo '<form>';
-// CSS für callout einbinden
-echo $callout;
-
-
-// jetzt alle Fragen der Reihe nach ausgeben
-$itemnumber = 1;
-foreach ($questions as $question)
+function createPoll()
 {
 
-  $t = $template;
-  
-  // dafür sorgen, dass nur der erste eintrag geöffnet ist
-  $itemnumber < 2? $showitem = " show" : $showitem = '';
-  $itemtitle = 'Frage '.$itemnumber.': '.$question->qtext()->html();
+  $pollcontainer ='<div id="pollcontainer" class="col-12 p-5"><form id="fizPoll22">##CONTENT##</form>##SUBMIT##</div>##JAVASCRIPT##';
 
+  // Inhalte von der Seite holen
+  $questions = kirby()->page('home')->questions()->toStructure();
+  $itemnumber = 1;
+  $content = '';
 
-  $t = str_replace(['##ITEMTITLE##','##ITEMNUMBER##','##SHOWITEM##'],[$itemtitle,$itemnumber,$showitem],$t);
+  // jetzt Daten zu jeder Frage holen
+  foreach ($questions as $question)
+  {
+    $temp = '';
 
-  $b = getItemBody($question,$itemnumber);
+    $itemtitel = 'Frage '.$itemnumber.': '.$question->qtext()->html();
+    $itemexplain = $question->qexplain()->kirbytext(); 
+    $titelbtn = '<h5 style="width:30px;height:26px;" class="rounded-circle text-center text-light bg-primary titelbtn" data-titel="'.$itemtitel.'" data-explain="'.$itemexplain.'">?</h5>';
 
-  $t = str_replace('##ITEMBODY##',$b,$t);
+    // Titelzeile
+    $temp .=  '<div class="bg-light border border-dark p-2 itemtitel"><h5>'.$itemtitel.'</h5>'.$titelbtn.'</div>';
 
-  print $t;
+    // Textkörper
+    $beschlussvorschlag ='<h6>Beschlußvorschlag: '.$question->qproposal().'</h6>';
+    $radio = makeRadioGroup($question->qid());
+    $itembody = '<div class="border border-dark p-4 mb-5 qbody" style="border-top: 0px !important;">'.$beschlussvorschlag.$radio.'</div>';
+
+    $temp .= $itembody;
+
+    $content .= $temp;
+
   $itemnumber ++;
-}
-
-print $submit;
-
-echo '</form></div>';
-
-/**
- * wandelt die Antwortmöglichkeiten in checkboxes oder radiobuttons
- * itemnumber: nötig, um die IDs eindeutig zu machen!
- */
-function getItemBody($question,$itemnumber)
-{
-
-/**
- *  Vorlagen für bootstrap 5 checkboxes und radiobuttons
- *  Die Platzhalter in doppelten Rauten (##OPTNUM##) müssen 
- *  im Programmverlauf ersetzt werden 
- */
-  $tpl_checkbox = <<<EOD
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="##OPTVAL##" id="option##OPTNUM##">
-    <label class="form-check-label" for="option##OPTNUM##">##OPTTEXT##</label>
-  </div>
-  EOD;
-
-  $tpl_radio = <<<EOD
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="question##ITEMNUMBER##" id="option##OPTNUM##" val="##OPTVAL##">
-    <label class="form-check-label" for="option##OPTNUM##">##OPTTEXT##</label>
-  </div>
-  EOD;
-
-// nimmt das gesamte auszugebende HTML auf
-  $return = '';
-
-// gibt es vor den Kästchen noch Info-Text?
-  $itemexplain = $question->qexplain()->kirbytext();
-  if (strlen($itemexplain) > 2)
-  {
-    $explanation = '<div class="callout">'.$itemexplain.'</div>';
-  }
-  else { $explanation = '';}
-
-  $return .= $explanation;
-
-
-
-// weist $template die richtige Vorlage zu
-  $question->qtype() == 'multiple'?  $template = $tpl_checkbox : $template = $tpl_radio;
-
-// es handelt sich bei den Antwortmöglichkeiten um eine structure (in einer structure ...)
-// deshalb muss das Object vorher umgewandelt werden!
-  $replies = $question->qreplies()->toStructure();
-  $counter = 1;
-
-  foreach($replies as $reply)
-  {
-      $optnum = $itemnumber.$counter;
-      $optval = $reply->value();
-      $opttext = $reply->reply();
-
-      $search = [
-        '##OPTTEXT##',
-        '##OPTVAL##',
-        '##OPTNUM##'
-      ];
-
-      $replace = [
-        $opttext,
-        $optval,
-        $optnum
-      ];
-
-      $t = str_replace($search, $replace, $template);
-
-      if($question->qtype() == 'justone')
-      {
-        $t = str_replace('##ITEMNUMBER##',$itemnumber, $t);
-      }
-
-      $return = $return.$t;
-
-      $counter ++;
   }
 
-  return $return;
+  // Submit-Button:
+  $submit = '<div><button type="button" class="btn btn-success">Fragebogen abschicken</button></div>';
+
+$javascript = <<< EOD
+  <script type="text/javascript">
+    let a = document.querySelectorAll('.titelbtn');
+    a.forEach((b) => {
+      b.addEventListener('mouseover', function(){
+        this.classList.remove('text-light', 'bg-primary');
+        this.classList.add('text-dark', 'bg-warning');
+        this.style.cursor = 'pointer';
+      });
+     b.addEventListener('mouseout', function(){
+        this.classList.remove('text-dark', 'bg-warning');
+        this.classList.add('text-light', 'bg-primary');
+      });
+     b.addEventListener('click', function(){
+        document.querySelector('.modal-dialog').classList.add('modal-fullscreen');
+        c = {};
+        c.titel = this.dataset.titel;
+        c.body = this.dataset.explain;
+        c.bgcolor = 'bg-light';
+        showModal(c);
+      });
+    });
+
+  </script>
+EOD;
+
+  //$pollcontainer = str_replace(['##CONTENT##', '##SUBMIT##','##JAVASCRIPT##'], [$content, $submit, $javascript], $pollcontainer);
+  $pollcontainer = str_replace(['##CONTENT##', '##SUBMIT##'], [$content, $submit], $pollcontainer);
+  return $pollcontainer;
+
 }
+
+
+function makeRadioGroup($id){
+
+$templ = <<< EOF
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="##NAME##" id="##ID##">
+  <label class="form-check-label" for="##ID##" value="##VALUE##">
+    ##TEXT##
+  </label>
+</div>
+EOF;
+
+$values = ['','ja','nein','enthaltung'];
+$text = ['','ja','nein','Enthaltung'];
+
+  $radiogroup = '';
+
+  for($i = 1; $i < 4; $i++)
+  {
+    $t = $templ;
+    $t = str_replace(['##NAME##','##ID##','##VALUE##','##TEXT##'],[$id, $id.$i, $values[$i], $text[$i]], $t);
+    $radiogroup .= $t;
+  }
+
+return $radiogroup;
+
+}
+
 ?>

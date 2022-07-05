@@ -4,12 +4,10 @@ type: structure
 columns:
   qvalue:
     width: 2/20
-  qid:
-    width: 1/20
   qtext:
     width: 9/20
   qtype:
-    width: 2/20
+    width: 3/20
   qreplies:
     width: 6/20
 fields:
@@ -17,14 +15,7 @@ fields:
     label: Fragetext
     type: text
     required: true
-    width: 3/4
-  qid:
-    label: Frage-ID
-    type: text
-    minlength: 5
-    maxlength: 5
-    help: Alphanum, 5stellig, muss eindeutig sein!
-    width: 1/4
+    width: 4/4
   qexplain:
     label: Erläuterung
     type: textarea
@@ -43,6 +34,17 @@ fields:
     text:
       - nein
       - ja
+  qyesnoabstain:
+    label: Soll der Standard ja-nein-Enthaltung verwendet werden?
+    type: toggle
+    default: true
+    text:
+      - nein
+      - ja
+  line:
+    type: line
+    when:
+      qyesnoabstain: false
   qinfo:
     label: Info
     type: info
@@ -50,15 +52,18 @@ fields:
       Hier bitte wählen:
        - eine Antwort: erzwingt, dass von den Antwortmöglichkeiten genau eine gewählt werden kann
        - mehrere Antworten: läßt zu, dass mehrere Antworten aus der Gruppe markiert werden.
+    when:
+      qyesnoabstain: false
   qtype:
     label: Antworttyp
     type: radio
-    default: obstain
+    default: justone
     options:
-      obstain: ja/nein/Enthaltung
       justone: eine Antwort
       multiple: mehrere Antworten
     width: 1/4
+    when:
+      qyesnoabstain: false
   qreplies:
     width: 3/4
     label: Antwortmöglichkeiten
@@ -74,3 +79,5 @@ fields:
       reply:
         label: Antwort
         type: text
+    when:
+      qyesnoabstain: false
