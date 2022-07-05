@@ -4,8 +4,6 @@
  *
  *
  */
-
-
 function checkAuthData($data)
 {
     $return['titel'] = 'Der Server meldet:';
@@ -34,16 +32,7 @@ function checkAuthData($data)
             {
                 if( doMemberDataMatch($data) )
                 {
-                    // wenn wir hier gelandet sind, ist das Mitglied authorisiert
-                    // an der Umfrage teilzunehmen
-                    //snippet('questions/questions');
-                    //$pollForm = createPoll();
-                    //$return['status'] = 'success';
-                    //$return['pollform'] = $pollForm;
-                    //returnJSONData($return);
-                    //exit;
-
-                    return true;
+                     return true;
                 }
                 else
                 {

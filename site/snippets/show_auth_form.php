@@ -55,7 +55,9 @@ a.addEventListener('click',function(){
             switch(data.status)
             {
                 case 'success': 
-                    document.getElementById('main_content').innerHTML = data.pollform;
+                    showModal({titel:data.titel,body:data.message,bgcolor:'bg-success-light'});
+                    //document.getElementById('main_content').innerHTML = data.pollform;
+                    setTimeout(function(){ window.location.href='/poll'}, 2500);
                     break;
                 case 'error': 
                     showModal({titel:data.titel,body:data.message,bgcolor:'bg-danger-light'});
@@ -67,7 +69,7 @@ a.addEventListener('click',function(){
     else {
         let formError = { 
             titel: 'Fehler im Formular',
-            body:'<ul><li>Groß- / Kleinschreibung sind wichtig!</li><li>schreibe Deinen Nachnamen so, wie er in der EMail geschrieben steht</li><li>schreibe dein Geburtsdatum im Format <i>01.07.2022</i>',
+            body:'<ul><li>Groß- / Kleinschreibung sind wichtig!</li><li>schreibe Deinen Nachnamen so, wie er in der Email geschrieben steht</li><li>schreibe dein Geburtsdatum im Format <i>01.07.2022</i><li>alle Felder müssen ausgefüllt werden!</li></ul>',
             bgcolor:'bg-danger-light'};
         showModal(formError);
     };

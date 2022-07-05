@@ -11,7 +11,10 @@ if($kirby->request()->is('POST'))
 			if( checkAuthData(get('content')) )
 			{
 				updateSession(get('content'));
-				//go('/poll');
+				$return['status'] = 'success';
+				$return['titel'] = 'Anmeldedaten sind korrekt!';
+				$return['message'] = 'Du wirst gleich zur Umfrage weiter geleitet!';
+				returnJSONData($return);
 			}
 			break;
 		default:
