@@ -1,50 +1,18 @@
 <?php
-    $authcode = '';
-    $readonly = '';
-/*
-eRzYGK6yoZ0u
-M5xm7LCFp14W
-3QDaUb1zyiZs
-bav6Bm2Eft0A
-MkLcDXbgGKz5
-*/
-
-function returnJSONData($return) 
-{
-    //
-}
-
-
-
-
-
-
+$authcode = '';
+$readonly = '';
 
 /**
- * wenn der authcode im URL mitgeliefert wird, handelt es sich um den Aufruf über den Einladungslink
- * dann reicht es, das Formular nur mit ausgefülltem authcode auszugeben
+ * wenn der authcode im URL mitgeliefert wird, das Formular mit ausgefülltem authcode auszugeben
  */
 if($kirby->request()->is('GET'))
 {
     if(!empty(get('authcode')))
     {
         $authcode = get('authcode');
-        $readonly = ' readonly';
     }
 }
-/**
- * wenn der request über POST hereinkommt, ist es das ausgefüllte Formular
- * - dann prüfen, ob die Daten in Ordnung sind
- * - im Erfolgsfall den Fragebogen zurück geben
- * - sonst eine Fehlermeldung
- */
-elseif($kirby->request()->is('POST'))
-{
-
-}
 ?>
-
-
 
 <div class="row">
 <form name="fizUserAuth">
@@ -52,7 +20,7 @@ elseif($kirby->request()->is('POST'))
         <h5 class="mt-3 mb-3">Als Mitglied authentifizieren:</h5>
         <div class="mb-3">
           <label for="fiz_auth" class="form-label fw-bold">Authentifizierungscode</label>
-          <input type="text" class="form-control" name="authcode" id="fiz_auth" placeholder="Code aus der Einladungsmail" value="<?= $authcode; ?>"<?= $readonly; ?>>
+          <input type="text" class="form-control" name="authcode" id="fiz_auth" placeholder="Code aus der Einladungsmail" value="<?= $authcode; ?>">
         </div>
         <div class="mb-3">
           <label for="fiz_name" class="form-label fw-bold">Nachname</label>
