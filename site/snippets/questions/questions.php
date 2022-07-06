@@ -6,8 +6,9 @@
 
 function createPoll()
 {
+  $radioNames = array();
 
-  $pollcontainer ='<div id="pollcontainer" class="col-12 p-5"><form id="fizPoll22">##CONTENT##</form>##SUBMIT##</div>'.getJavascript();
+  $pollcontainer ='<div id="pollcontainer" class="col-12 p-5"><form id="fizPoll22" action="/danke" method="post"><input type="hidden" id="radioNames" value="##RADIONAMES##">##CONTENT##</form>##SUBMIT##</div>'.getJavascript();
 
   // Inhalte von der Seite holen
   $questions = kirby()->page('home')->questions()->toStructure();
@@ -29,26 +30,35 @@ function createPoll()
     // Textkörper
     $beschlussvorschlag ='<h6>Beschlußvorschlag: '.$question->qproposal().'</h6>';
     $radio = makeRadioGroup($question->qid());
+
+    // radioNames sammeln!
+    if( !in_array( $question->qid(), $radioNames ) )
+    { 
+      array_push($radioNames, $question->qid());
+    }
+
+
+
     $itembody = '<div class="border border-dark p-4 mb-5 qbody" style="border-top: 0px !important;">'.$beschlussvorschlag.$radio.'</div>';
 
     $temp .= $itembody;
 
     $content .= $temp;
 
-  $itemnumber ++;
+    $itemnumber ++;
   }
 
+  $radioNames = implode(',',$radioNames);
+
   // Submit-Button:
-  $submit = '<div><button type="button" class="btn btn-success">Fragebogen abschicken</button></div>';
+  $submit = '<div><button id="sbmtbtn" type="button" class="btn btn-success">Fragebogen abschicken</button></div>';
 
-
-
-
-  //$pollcontainer = str_replace(['##CONTENT##', '##SUBMIT##','##JAVASCRIPT##'], [$content, $submit, $javascript], $pollcontainer);
-  $pollcontainer = str_replace(['##CONTENT##', '##SUBMIT##'], [$content, $submit], $pollcontainer);
+  $pollcontainer = str_replace(['##RADIONAMES##','##CONTENT##', '##SUBMIT##'], [$radioNames, $content, $submit], $pollcontainer);
   return $pollcontainer;
 
 }
+
+
 
 
 function makeRadioGroup($id)
@@ -56,8 +66,8 @@ function makeRadioGroup($id)
 
 $templ = <<< EOF
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="##NAME##" id="##ID##">
-  <label class="form-check-label" for="##ID##" value="##VALUE##">
+  <input class="form-check-input" type="radio" name="##NAME##" value="##VALUE##">
+  <label class="form-check-label" for="##ID##">
     ##TEXT##
   </label>
 </div>
@@ -78,34 +88,58 @@ $text = ['','ja','nein','Enthaltung'];
 }
 
 function getJavascript(){
-
 $javascript = <<<EOD
 <script type="text/javascript">
-  let a = document.querySelectorAll('.titelbtn');
-  a.forEach((b) => {
-    b.addEventListener('mouseover', function(){
-      this.classList.remove('text-light', 'bg-primary');
-      this.classList.add('text-dark', 'bg-warning');
-      this.style.cursor = 'pointer';
+    let a = document.querySelectorAll('.titelbtn');
+    a.forEach((b) => {
+        b.addEventListener('mouseover', function(){
+            this.classList.remove('text-light', 'bg-primary');
+            this.classList.add('text-dark', 'bg-warning');
+            this.style.cursor = 'pointer';
+        });
+        b.addEventListener('mouseout', function(){
+            this.classList.remove('text-dark', 'bg-warning');
+            this.classList.add('text-light', 'bg-primary');
+        });
+        b.addEventListener('click', function(){
+            document.querySelector('.modal-dialog').classList.add('modal-fullscreen');
+            c = {};
+            c.titel = this.dataset.titel;
+            c.body = this.dataset.explain;
+            c.bgcolor = 'bg-light';
+            showModal(c);
+        });
     });
-   b.addEventListener('mouseout', function(){
-      this.classList.remove('text-dark', 'bg-warning');
-      this.classList.add('text-light', 'bg-primary');
+
+    c = document.getElementById('sbmtbtn');
+    c.addEventListener('click', function(){
+        areAllRadiosChecked();
+
+        if ( !allRadiosAreChecked ){
+            d = {};
+            d.titel = 'Formular unvollständig!';
+            d.body = 'Es muss zu jeder Frage eine Antwort angeklickt sein!';
+            d.bgcolor = 'bg-warning-light';
+            showModal(d);
+            allRadiosAreChecked = true;
+        }
+        else{ document.forms[0].submit(); }
     });
-   b.addEventListener('click', function(){
-      document.querySelector('.modal-dialog').classList.add('modal-fullscreen');
-      c = {};
-      c.titel = this.dataset.titel;
-      c.body = this.dataset.explain;
-      c.bgcolor = 'bg-light';
-      showModal(c);
-    });
-  });
+
+    var allRadiosAreChecked = true;
+
+    areAllRadiosChecked = function(){
+        let a = document.getElementById('radioNames').value;
+        let b = a.split(',');
+        for(i=0;i<b.length;i++) {
+            a = document.querySelector('input[name="' + b[i] +'"]:checked');
+            if ( a == 'null' || a == undefined){ allRadiosAreChecked = false; }
+        }
+    }
 </script>
 EOD;
 
 return $javascript;
-
 }
 
 ?>
