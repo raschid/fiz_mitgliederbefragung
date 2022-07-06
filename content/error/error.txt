@@ -1,1 +1,22 @@
-Title: Error
+Title: Diese Seite gibt es nicht - oder Du darfst nicht darauf zugreifen :-(
+
+----
+
+Text:
+
+Guten Tag,
+
+diese Webseiten sind der Mitgliederbefragung des **VFG Kiel e.V.** gewidmet.
+
+Da Du gerade die Fehlerseite liest, 
+
+- hat dich vielleicht ein Fehler im Programm hierher geführt
+- oder du hast versucht, eine Seite aufzurufen, für die dir die Rechte fehlen
+- oder du hast mehr als 2 Stunden benötigt und deine Sitzung ist abgelaufen
+
+Wenn Du Mitglied im **VFG Kiel e.V.** bist und an der Mitgliederbefragung teilnehmen möchtest, solltest Du entweder eine Email mit einem Teilnahmelink, oder einen Brief mit den entsprechenden Informationen erhalten haben.
+
+Falls nicht, wende dich bitte an die <a href="https://www.fiz-kiel.de">Mitgliederverwaltung im FiZ</a>.
+
+_Mit sportlichen Grüßen,
+Dein FiZ-Team_
