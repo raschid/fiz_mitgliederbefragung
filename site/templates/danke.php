@@ -43,10 +43,9 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 	}
 
 // markieren den authcode als "hat_gewaehlt"
-/*	$d = date("Y-m-d h:m:s", time());
+	$d = date("Y-m-d h:m:s", time());
 	$einmalcode =  $userdata['authcode'];
     $t = Db::update('mitglieder',['hatgewaehlt' => $d], ['einmalcode' => $einmalcode]);
-*/
 
 /**
  * nun sammeln wir die Antwort-Datensätze für jede Frage-ID
@@ -90,7 +89,7 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 	echo '<div class="row" id="main_content">';
 	echo '<div class="col-12">';
 
-	echo kirby()->page()->text()->kirbytext();
+	echo $page->text()->kirbytext();
 
 
 	echo '</div>';
