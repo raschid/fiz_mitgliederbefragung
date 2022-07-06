@@ -24,9 +24,9 @@
 	<div id="maincontent" class="col-xs-12 col-md-10 offset-md-1">
 		<div class="row">
 			<div class="d-flex align-items-center bg-white ps-1 pe-1 py-1" style="border-bottom:2px solid #777; margin-bottom:1.5rem;">
-				<img src="assets/images/logo_vfg_57x50.png">
+				<a href="/home"><img src="assets/images/logo_vfg_57x50.png"></a>
 				<div class="d-flex ms-auto">
-					<img src="assets/images/logo_fiz_138x50.png">
+					<a href="https://www.fiz-kiel.de"><img src="assets/images/logo_fiz_138x50.png"></a>
 				</div>
 			</div>
 		</div>
