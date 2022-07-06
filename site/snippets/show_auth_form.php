@@ -11,6 +11,8 @@ if($kirby->request()->is('GET'))
     {
         $authcode = get('authcode');
     }
+
+dump($kirby->request());
 }
 ?>
 

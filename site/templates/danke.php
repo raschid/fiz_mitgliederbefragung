@@ -3,7 +3,7 @@
  * hier wird zunächst geprüft, ob die nötigen Sessionparameter fiz.x und fiz.y existieren und
  * valide Daten enthalten. Nur dann hat sich das Mitglied erfolgreich authorisiert!
  */
-	/*$session = kirby()->session();
+	$session = kirby()->session();
 	$userdata['mitgliedsnr'] = $session->get('fiz.x');
 	$userdata['authcode'] = strrev($session->get('fiz.y'));
 
@@ -20,7 +20,7 @@
     if(Db::affected() != 1){ go('/home'); }
    	
    	// wenn der zugehörige Datensatz bereits als "hat_gewaehlt" markiert ist: umleiten!
-    if($t->hatgewaehlt() != '0000-00-00 00:00:00' && $t->hatgewaehlt() != NULL){ go('/error'); }*/
+    if($t->hatgewaehlt() != '0000-00-00 00:00:00' && $t->hatgewaehlt() != NULL){ go('/error'); }
 
 /**
  * wenn es bis hier keine Umleitung zu /error gegeben hat, ist die Session gültig und wir können 
@@ -42,14 +42,16 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 		array_push($qids, $t); 
 	}
 
+// markieren den authcode als "hat_gewaehlt"
+/*	$d = date("Y-m-d h:m:s", time());
+	$einmalcode =  $userdata['authcode'];
+    $t = Db::update('mitglieder',['hatgewaehlt' => $d], ['einmalcode' => $einmalcode]);
+*/
 
 /**
  * nun sammeln wir die Antwort-Datensätze für jede Frage-ID
- * und basteln das SQL-statement
+ * basteln das SQL-statement und tragen die Ergebnisse ein
  */
-	$sql_tpl = 'INSERT INTO ergebnisse (`frage_id`, `wert`) VALUES ("##FRAGEID##","##WERT##");';
-	$statements = '';
-
 	foreach($qids as $qid)
 	{
 		// der Eintrag kann nur ja/nein oder enthaltung, also alpha sein.
@@ -58,15 +60,13 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 		else {
 			$frageid = $qid;
 			$wert = get($frageid);
-			$statements .= str_replace(['##FRAGEID##','##WERT##'], [$frageid, $wert], $sql_tpl);
+
+			$id = Db::insert('ergebnisse', [
+  				'frage_id' => $frageid,
+  				'wert'    => $wert
+			]);
 		}	
 	}
-		dump($statements);
-
-
-// markieren den authcode als "hat_gewaehlt"
-
-// tragen die Ergebnisse ein
 
 // und sagen danke!
 
@@ -90,54 +90,9 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 	echo '<div class="row" id="main_content">';
 	echo '<div class="col-12">';
 
-/** 
- * Wir begrüßen das Mitglied mit vollem Namen.
- * und fügen seine IP-Adresse der session hinzu
- */
-/*	$userdata['vorname'] = $t->vorname;
-	$userdata['nachname'] = $t->nachname;
-	$session->set('fiz.z', $_SERVER['REMOTE_ADDR']);
+	echo kirby()->page()->text()->kirbytext();
 
-	$page = $kirby->page('poll');
-	
-	// workaround, solange die echten Anreden in der DB fehlen ...
-	if($t->anrede == Null){
-		$anr = array('Liebe', 'Lieber','Liebe', 'Lieber','Liebe', 'Lieber','Liebe', 'Lieber','Liebe', 'Lieber');
-		shuffle($anr);
-		$anrede = $anr[3];
-	}
-	else{ $anrede = $t->anrede; }
-
-	echo '<h5 class="mb-4">'.$anrede.' '.$userdata['vorname'].' '.$userdata['nachname'].',</h5>';
-
-	echo $page->welcome()->kirbytext();
-
-	echo snippet('questions/questions');
-	echo createPoll();*/
-
-
-/**
- * wir holen die Liste der Frage-ids aus dem home-blueprint
- */
-	$qids = array();
-	$qids_struct = kirby()->page('home')->questions()->toStructure();
-	foreach($qids_struct as $qid)
-	{
-		$t = $qid->qid()->value(); 
-		array_push($qids, $t); 
-	}
-
-
-	if($kirby->request()->is('POST')) 
-	{ 
-			dump($qids);
-
-//		foreach($qids as $qid){
-//			echo get($qid).'<br>';
-//		}
-	}
 
 	echo '</div>';
 	echo snippet('aa_footer');
 ?>
-
