@@ -102,7 +102,7 @@ $javascript = <<<EOD
             this.classList.add('text-light', 'bg-primary');
         });
         b.addEventListener('click', function(){
-            document.querySelector('.modal-dialog').classList.add('modal-fullscreen');
+            document.querySelector('.modal-dialog').classList.add('modal-lg');
             c = {};
             c.titel = this.dataset.titel;
             c.body = this.dataset.explain;

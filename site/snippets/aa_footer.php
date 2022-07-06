@@ -43,7 +43,7 @@
 		document.getElementById('fizModalBody').innerHTML = '';
 		let el = document.querySelector('.modal-content');
 		el.classList.remove('bg-warning-light', 'bg-danger-light', 'bg-success-light', 'bg-light');
-		document.querySelector('.modal-dialog').classList.remove('modal-fullscreen');
+		document.querySelector('.modal-dialog').classList.remove('modal-lg');
 		document.querySelector('.modal-dialog').classList.remove('modal-small');
 	}
 /**
