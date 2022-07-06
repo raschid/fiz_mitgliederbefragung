@@ -45,11 +45,24 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 
 /**
  * nun sammeln wir die Antwort-Datensätze für jede Frage-ID
- *
+ * und basteln das SQL-statement
  */
+	$sql_tpl = 'INSERT INTO ergebnisse (`frage_id`, `wert`) VALUES ("##FRAGEID##","##WERT##");';
+	$statements = '';
 
+	foreach($qids as $qid)
+	{
+		// der Eintrag kann nur ja/nein oder enthaltung, also alpha sein.
+		// wenn nicht -> überspringen
+		if ( !V::alpha(get($qid))){ continue; }
+		else {
+			$frageid = $qid;
+			$wert = get($frageid);
+			$statements .= str_replace(['##FRAGEID##','##WERT##'], [$frageid, $wert], $sql_tpl);
+		}	
+	}
+		dump($statements);
 
-// basteln das SQL-statement
 
 // markieren den authcode als "hat_gewaehlt"
 
