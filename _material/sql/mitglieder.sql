@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: database-5008647853.webspace-host.com:3306
--- Erstellungszeit: 10. Jun 2022 um 15:57
--- Server-Version: 5.7.38-log
--- PHP-Version: 7.2.34
+-- Host: localhost:3306
+-- Erstellungszeit: 06. Jul 2022 um 11:01
+-- Server-Version: 5.7.38-0ubuntu0.18.04.1
+-- PHP-Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `dbs7271838`
+-- Datenbank: `mitgliederbefragung`
 --
 
 -- --------------------------------------------------------
@@ -34,22 +33,18 @@ CREATE TABLE `mitglieder` (
   `vorname` varchar(70) NOT NULL,
   `nachname` varchar(70) NOT NULL,
   `titel` varchar(15) DEFAULT NULL,
-  `geschlecht` varchar(1) DEFAULT NULL,
-  `geburtsdatum` date NOT NULL,
+  `geburtstag` date NOT NULL,
+  `email` varchar(80) DEFAULT NULL,
+  `anrede` varchar(6) DEFAULT NULL,
   `einmalcode` varchar(12) NOT NULL,
   `hatgewaehlt` datetime DEFAULT NULL,
-  `ipadresse` varchar(50) NOT NULL
+  `ipadresse` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Indizes der exportierten Tabellen
---
-
---
 -- Indizes für die Tabelle `mitglieder`
 --
 ALTER TABLE `mitglieder`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `einmalcode` (`einmalcode`);
 
 --
