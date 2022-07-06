@@ -5,7 +5,7 @@
 
 <!-- modal-template -->
 <div class="modal fade" id="fizModal" tabindex="-1" aria-labelledby="fizLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="fizModalTitel"></h5>
@@ -20,7 +20,7 @@
 </div>
 
 <script>
-	const fizModal = new bootstrap.Modal('#fizModal', {keyboard: false});
+	const fizModal = new bootstrap.Modal('#fizModal', {});
 	b = document.getElementById('fizModal');
 	b.addEventListener('hide.bs.modal', event => { emptyModal(); })
 
@@ -42,7 +42,9 @@
 		document.getElementById('fizModalTitel').innerHTML = '';
 		document.getElementById('fizModalBody').innerHTML = '';
 		let el = document.querySelector('.modal-content');
-		el.classList.remove('bg-warning-light', 'bg-danger-light', 'bg-success-light');
+		el.classList.remove('bg-warning-light', 'bg-danger-light', 'bg-success-light', 'bg-light');
+		document.querySelector('.modal-dialog').classList.remove('modal-fullscreen');
+		document.querySelector('.modal-dialog').classList.remove('modal-small');
 	}
 /**
  * holt die angefragten Daten vom Server
