@@ -1,0 +1,83 @@
+questiones:
+label: Fragen
+type: structure
+columns:
+  qvalue:
+    width: 2/20
+  qtext:
+    width: 9/20
+  qtype:
+    width: 3/20
+  qreplies:
+    width: 6/20
+fields:
+  qtext:
+    label: Fragetext
+    type: text
+    required: true
+    width: 4/4
+  qexplain:
+    label: Erläuterung
+    type: textarea
+    size: small
+    width: 1/1
+    help: Wird per _mouseover_ eingeblendet
+  qproposal:
+    label: Beschlußvorschlag
+    type: textarea
+    size: small
+    width: 1/1
+  qrequired:
+    label: Ist eine Antwort zwingend erforderlich?
+    type: toggle
+    default: true
+    text:
+      - nein
+      - ja
+  qyesnoabstain:
+    label: Soll der Standard ja-nein-Enthaltung verwendet werden?
+    type: toggle
+    default: true
+    text:
+      - nein
+      - ja
+  line:
+    type: line
+    when:
+      qyesnoabstain: false
+  qinfo:
+    label: Info
+    type: info
+    text: |
+      Hier bitte wählen:
+       - eine Antwort: erzwingt, dass von den Antwortmöglichkeiten genau eine gewählt werden kann
+       - mehrere Antworten: läßt zu, dass mehrere Antworten aus der Gruppe markiert werden.
+    when:
+      qyesnoabstain: false
+  qtype:
+    label: Antworttyp
+    type: radio
+    default: justone
+    options:
+      justone: eine Antwort
+      multiple: mehrere Antworten
+    width: 1/4
+    when:
+      qyesnoabstain: false
+  qreplies:
+    width: 3/4
+    label: Antwortmöglichkeiten
+    type: structure
+    columns:
+      value: 1/10
+      reply: 9/10
+    fields:
+      value:
+        type: text
+        label: Wert
+        maxlength: 5
+      reply:
+        label: Antwort
+        type: text
+    when:
+      qyesnoabstain: false

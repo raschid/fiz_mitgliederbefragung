@@ -1,0 +1,76 @@
+questiones:
+label: Fragen
+type: structure
+columns:
+  qvalue:
+    width: 2/20
+  qid:
+    width: 1/20
+  qtext:
+    width: 9/20
+  qtype:
+    width: 2/20
+  qreplies:
+    width: 6/20
+fields:
+  qtext:
+    label: Fragetext
+    type: text
+    required: true
+    width: 3/4
+  qid:
+    label: Frage-ID
+    type: text
+    minlength: 5
+    maxlength: 5
+    help: Alphanum, 5stellig, muss eindeutig sein!
+    width: 1/4
+  qexplain:
+    label: Erläuterung
+    type: textarea
+    size: small
+    width: 1/1
+    help: Wird per _mouseover_ eingeblendet
+  qproposal:
+    label: Beschlußvorschlag
+    type: textarea
+    size: small
+    width: 1/1
+  qrequired:
+    label: Ist eine Antwort zwingend erforderlich?
+    type: toggle
+    default: true
+    text:
+      - nein
+      - ja
+  qinfo:
+    label: Info
+    type: info
+    text: |
+      Hier bitte wählen:
+       - eine Antwort: erzwingt, dass von den Antwortmöglichkeiten genau eine gewählt werden kann
+       - mehrere Antworten: läßt zu, dass mehrere Antworten aus der Gruppe markiert werden.
+  qtype:
+    label: Antworttyp
+    type: radio
+    default: obstain
+    options:
+      obstain: ja/nein/Enthaltung
+      justone: eine Antwort
+      multiple: mehrere Antworten
+    width: 1/4
+  qreplies:
+    width: 3/4
+    label: Antwortmöglichkeiten
+    type: structure
+    columns:
+      value: 1/10
+      reply: 9/10
+    fields:
+      value:
+        type: text
+        label: Wert
+        maxlength: 5
+      reply:
+        label: Antwort
+        type: text

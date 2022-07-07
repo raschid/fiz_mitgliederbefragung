@@ -1,0 +1,20 @@
+Title: Benutzer-Anmeldung
+
+----
+
+Alert:
+
+Benutzer-Email oder Passwort sind ungültig :-( 
+Bitte nochmal versuchen:
+
+----
+
+Username: Benutzer-Email
+
+----
+
+Password: Passwort
+
+----
+
+Button: anmelden ...

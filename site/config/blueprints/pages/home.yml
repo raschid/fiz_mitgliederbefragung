@@ -1,0 +1,13 @@
+title: Default Page
+icon: ❔
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  einleitung:
+    label: Einleitung
+    type: textarea
+    size: medium
+  questions:
+    extends: fields/questions

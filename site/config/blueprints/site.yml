@@ -1,0 +1,27 @@
+title: Site
+
+columns:
+  preferences:
+    width: 1/3
+    sections:
+        config:
+          type: fields
+          fields:
+            showpage:
+              label: Seite anzeigen?
+              type: radio
+              options:
+                ja: ja
+                nein: nein
+  main:
+    width: 2/3
+    sections:
+      drafts:
+        type: pages
+        status: drafts
+      unlisted:
+        type: pages
+        status: unlisted
+      published:
+        type: pages
+        status: listed
