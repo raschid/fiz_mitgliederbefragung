@@ -1,0 +1,5 @@
+title: Vorstand
+description: Vorstandsrolle für Auswertungsseite
+permissions:
+  access:
+    panel: false

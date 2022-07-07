@@ -43,9 +43,11 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 	}
 
 // markieren den authcode als "hat_gewaehlt"
+// und nehmen die IP auf!
 	$d = date("Y-m-d h:m:s", time());
+	$ip = $_SERVER['REMOTE_ADDR'];
 	$einmalcode =  $userdata['authcode'];
-    $t = Db::update('mitglieder',['hatgewaehlt' => $d], ['einmalcode' => $einmalcode]);
+    $t = Db::update('mitglieder',['hatgewaehlt' => $d, 'ipadresse' => $ip], ['einmalcode' => $einmalcode]);
 
 /**
  * nun sammeln wir die Antwort-Datensätze für jede Frage-ID
@@ -68,18 +70,6 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 	}
 
 // und sagen danke!
-
-
-
-
-
-
-
-
-
-
-
-
 	echo snippet('aa_header');
 	echo '<div class="row">';
 	echo '<div class="col-12">';
