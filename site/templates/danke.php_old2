@@ -43,11 +43,9 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 	}
 
 // markieren den authcode als "hat_gewaehlt"
-// und nehmen die IP auf!
 	$d = date("Y-m-d h:m:s", time());
-	$ip = $_SERVER['REMOTE_ADDR'];
 	$einmalcode =  $userdata['authcode'];
-    $t = Db::update('mitglieder',['hatgewaehlt' => $d, 'ipadresse' => $ip], ['einmalcode' => $einmalcode]);
+    $t = Db::update('mitglieder',['hatgewaehlt' => $d], ['einmalcode' => $einmalcode]);
 
 /**
  * nun sammeln wir die Antwort-Datensätze für jede Frage-ID
@@ -59,8 +57,12 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 		// wenn nicht -> überspringen
 		if ( !V::alpha(get($qid))){ continue; }
 		else {
-			$frageid = $qid;
-			$wert = get($frageid);
+			$frageid = 'false';
+			$wert = 'ungueltig';
+			
+			if(!empty($qid)){ $frageid = $qid; 
+			if(!empty(get($frageid)){ $wert = get($frageid); }
+			
 
 			$id = Db::insert('ergebnisse', [
   				'frage_id' => $frageid,
@@ -70,11 +72,15 @@ if(!$kirby->request()->is('POST')){ go('/error'); }
 	}
 
 
-/**
- * jetzt löschen wir noch die session-Daten
- * 
- */
-	$session->remove(['fiz.x','fiz.y']);
+
+
+
+
+
+
+
+
+
 
 
 // und sagen danke!
