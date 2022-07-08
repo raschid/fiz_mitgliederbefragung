@@ -10,7 +10,7 @@ echo '</div>';
 echo '<div class="row" id="main_content">';
 echo '<div class="col-12 fs-5">';
 
-$datum = $d = date("d.m.Y H:m", time());
+$datum = $d = date("d.m.Y H:i", time());
 $tn_online_gesamt =  Db::count('mitglieder');
 $tn_hatgewaehlt =  Db::count('mitglieder', 'hatgewaehlt > "2022-06-30 10:00:00"');
 
@@ -45,12 +45,18 @@ foreach ($frage_ids as $id) {
  	$trows .= $trow;
 }
 
+$prozent = (100/$tn_online_gesamt)*$tn_hatgewaehlt;
+$prozent = number_format($prozent, 2, ",", ".");
+$prozent_aktiv = (100/8000)*$tn_hatgewaehlt;
+$prozent_aktiv = number_format($prozent_aktiv, 2, ",", ".");
 
-
-
-echo '<table><tr><td style="width:350px;">Zeitpunkt der Abfrage:</td><td> '.$datum.'</td></tr>';
+echo '<table class="table table-sm table bordered"><thead></thead><tbody><tr><td style="width:350px;">Zeitpunkt der Abfrage:</td><td> '.$datum.'</td></tr>';
 echo '<tr><td>Mitglieder in DB gesamt:</td><td>'.$tn_online_gesamt.'</td></tr>';
-echo '<tr><td>Mitglieder die gewählt haben:</td><td> '.$tn_hatgewaehlt.'</td></tr></table>';
+echo '<tr><td>Mitglieder die gewählt haben:</td><td> '.$tn_hatgewaehlt.'</td></tr>';
+echo '<tr><td>Prozent:</td><td> '.$prozent.'</td></tr>';
+echo '<tr><td>Prozent Aktive:<br><span class="fs-6">(ca. 8.000)</span></td><td> '.$prozent_aktiv.'</td></tr></tbody></table>';
+
+
 echo '<h4 class="mt-4">Ergebnisse:</h4>';
 
 
